@@ -2,8 +2,8 @@
 
 <a href="{%url 'home'%}" >My Home</a>
 
-<form action="count">
-<textarea cols="40" rows="10" name="fulltxt"></textarea>
+<form action="{% url 'count'%}">
+<textarea cols='40' rows='10' name="fulltxt"></textarea>
 <br/>
-<input type="submit" value=i"CountMe" />
+<input type="submit" value="CountMe" />
 </form>
