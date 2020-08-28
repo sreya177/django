@@ -1,0 +1,14 @@
+<div class="container-show">
+<ul class="grid" style="list-style-type: none">
+
+{% for contact in contacts %}
+<li>
+<div>
+	<h2> {{ contact.name }} </h2>
+	 {{ contact.relation }}
+	 {{ contact.phone }}
+	 {{ contact.email }}
+</div>
+</li>
+{% endfor %}
+</ul>

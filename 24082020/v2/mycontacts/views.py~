@@ -1,0 +1,37 @@
+from django.shortcuts import render
+from .forms import AddForm
+from .models import Contact
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from .forms import AddForm
+# Create your views here.
+def add(request):
+    context={}
+    if request.method=='POST':
+        django_form = AddForm(request.POST)
+        if django_form.is_valid():
+            new_member_name = django_form.data.get("name")
+            new_member_relation = django_form.data.get("relation")
+            new_member_phone = django_form.data.get("phone")
+            new_member_email = django_form.data.get("email")
+            Contact.objects.create(
+                name=new_member_name,
+                relation=new_member_relation,
+                phone=new_member_phone,
+                email=new_member_email,
+                )
+            contact_list = Contact.objects.all()
+            return render(request,'mycontacts/show.html',{'contacts':contact_list})
+        else:
+            context['form']=AddForm()
+            return render(request,'mycontacts/add.html',context)
+            return render(request,'mycontacts/add.html')
+    else:
+        context['form']=AddForm()
+        return render(request,'mycontacts/add.html',context)
+        return render(request,'mycontacts/add.html')
+
+    #render(requests,'mycontacts/add.html',{}) 
+def show(request):
+    contact_list=Contact.objects.all()
+    return render(request,'mycontacts/show.html',{'contacts':contact_list})

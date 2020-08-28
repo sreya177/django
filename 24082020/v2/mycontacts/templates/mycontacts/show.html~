@@ -1,0 +1,8 @@
+{% for contact in contacts %}
+<li>
+	<h2> {{ contact.name }} </h2>
+	 {{ contact.relation }}
+	 {{ contact.phone }}
+	 {{ contact.email }}
+</li>
+{% endfor %}

@@ -1,0 +1,9 @@
+<form action="#" method="POST" role="form">
+{% csrf_token %}
+	{{form.as_p}}
+<!--<input type="text" name="name" placeholder="your name">
+<input type ="text" name="relation" placeholder="your relation">
+<input type="text" name="email" placeholder="your email">
+<input type="text" name="phone" placeholder="your phone">-->
+<button type="submit" class="btn">confirm</button>
+</form>
